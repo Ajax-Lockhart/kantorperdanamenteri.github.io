@@ -399,6 +399,25 @@
             transform: translateY(-5px) scale(1.05);
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
         }
+        /*Perubahan CSS*/
+        .icon-pm-rounded {
+    /* Pastikan gambar tampil sebagai blok untuk properti width/height */
+    display: block; 
+    /* Set lebar dan tinggi yang sama untuk membentuk lingkaran. */
+    /* Saat ini sudah ada h-10 (height: 2.5rem atau 40px) dari Tailwind, */
+    /* jadi kita hanya perlu set width-nya juga. */
+    width: 2.5rem; /* Sesuaikan dengan h-10 dari TailwindCSS */
+    height: 2.5rem; /* Ini sudah ada dari h-10 TailwindCSS */
+    
+    /* Ini yang membuat gambar menjadi bulat */
+    border-radius: 50%; 
+    
+    /* Penting: Pastikan gambar mengisi area lingkaran tanpa terdistorsi */
+    object-fit: cover; 
+    
+    /* Opsional: Tambahkan border jika ingin */
+    /* border: 2px solid #5E4F99; */
+}
     </style>
 </head>
 <body class="text-gray-800">
@@ -407,7 +426,7 @@
         <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
             <a href="#" onclick="showSection('home'); return false;" class="text-3xl font-bold mb-4 md:mb-0 text-primary-dark flex items-center group">
                 <!-- Ikon PNG dari gambar yang kamu berikan -->
-                <img src="Ajax + 4 Entity(Night).png" alt="Logo Kantor PM" class="h-10 mr-3 hidden md:block" onerror="this.onerror=null; this.src='https://placehold.co/40x40/5E4F99/FFFFFF?text=PM';" />
+                <img src="Ajax + 4 Entity(Night).png" alt="Logo Kantor PM" class="h-10 mr-3 hidden md:block icon-pm-rounded" onerror="this.onerror=null; this.src='https://placehold.co/40x40/5E4F99/FFFFFF?text=PM';" />
                 <span class="group-hover:text-accent-pink transition-colors">Kantor Perdana Menteri</span>
             </a>
             <!-- Hamburger menu untuk mobile -->
