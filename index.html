@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kantor Perdana Menteri - Indonesia</title>
+    <!-- Tailwind CSS CDN untuk styling yang efisien dan modern -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter untuk font yang bersih dan profesional -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome untuk ikon-ikon yang keren -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Gaya dasar untuk body, menggunakan font Inter */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F0E8F5; /* Lightest purple/pink from image background */
+            color: #333333; /* Dark Grey untuk teks utama */
+            line-height: 1.7; /* Meningkatkan keterbacaan baris */
+            overflow-x: hidden; /* Mencegah scrolling horizontal yang tidak diinginkan */
+        }
+
+        /* Palet warna kustom yang baru, terinspirasi dari gambar PNG */
+        .bg-primary-dark { background-color: #5E4F99; } /* Darker purple (derived from bluish-purple star) */
+        .bg-primary-medium { background-color: #8A82E3; } /* Bluish-purple star */
+        .bg-accent-light { background-color: #B08BDB; } /* Lavender/light purple star */
+        .bg-accent-pink { background-color: #DD84D4; } /* Pinkish-purple star */
+        .text-primary-dark { color: #5E4F99; }
+        .text-primary-medium { color: #8A82E3; }
+        .text-accent-light { color: #B08BDB; }
+        .text-accent-pink { color: #DD84D4; }
+        .border-primary-dark { border-color: #5E4F99; }
+        .bg-footer-dark { background-color: #2A2033; } /* Very dark desaturated purple for footer */
+
+
+        /* Header kustom untuk efek scroll yang dinamis */
+        .header-bg {
+            background-color: rgba(255, 255, 255, 0.95); /* Sedikit transparan saat tidak di-scroll */
+            backdrop-filter: blur(5px); /* Efek blur untuk background */
+            transition: background-color 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+            border-bottom: 1px solid rgba(94, 79, 153, 0.1); /* Garis bawah yang halus */
+        }
+        .header-scrolled {
+            background-color: #5E4F99; /* Primary Dark saat di-scroll */
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25); /* Bayangan lebih dalam */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* Garis bawah lebih samar */
+        }
+        /* Gaya link navigasi */
+        .nav-link {
+            position: relative;
+            padding: 0.75rem 1.25rem;
+            transition: color 0.3s ease, background-color 0.3s ease, transform 0.2s ease;
+            font-weight: 500;
+            border-radius: 0.5rem; /* Sudut lebih lembut */
+        }
+        .nav-link:hover {
+            color: #DD84D4; /* Accent Pink saat hover */
+            background-color: rgba(138, 130, 227, 0.1); /* Sedikit highlight di background */
+        }
+        .header-scrolled .nav-link {
+            color: white; /* Putih saat header di-scroll */
+        }
+        .header-scrolled .nav-link:hover {
+            color: #B08BDB; /* Accent Light saat hover */
+            background-color: rgba(255, 255, 255, 0.1); /* Background putih transparan saat hover */
+        }
+        .nav-link-current {
+            color: #8A82E3; /* Primary Medium untuk yang aktif */
+            font-weight: 600;
+            background-color: rgba(138, 130, 227, 0.05); /* Background sedikit berbeda */
+        }
+        .header-scrolled .nav-link-current {
+            color: #DD84D4; /* Accent Pink untuk yang aktif saat di-scroll */
+            background-color: rgba(255, 255, 255, 0.08);
+        }
+
+        /* Hero Section yang lebih profesional */
+        .hero-section {
+            position: relative;
+            height: 80vh; /* Tinggi yang lebih sesuai */
+            min-height: 550px;
+            background-image: url('Prime Minister Office.jpg'); /* Gambar background */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            overflow: hidden;
+            padding-top: 80px; /* Jarak dari header */
+        }
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(94, 79, 153, 0.7), rgba(138, 130, 227, 0.4)); /* Overlay gradasi ungu/biru */
+            z-index: 1;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            padding: 2rem;
+            animation: fadeInScale 1s ease-out forwards;
+        }
+        .hero-title {
+            font-family: 'Inter', sans-serif;
+            font-size: 3.8rem; /* Ukuran font yang lebih besar */
+            line-height: 1.2;
+            font-weight: 800;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5); /* Bayangan teks yang halus */
+            margin-bottom: 1.5rem;
+        }
+        .hero-subtitle {
+            font-size: 1.4rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            font-weight: 400;
+            animation: slideInUp 1s ease-out forwards 0.3s;
+            animation-fill-mode: backwards;
+        }
+        .hero-button {
+            background-color: #8A82E3; /* Primary Medium */
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 0.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(138, 130, 227, 0.4);
+            animation: zoomIn 0.8s ease-out forwards 0.6s;
+            animation-fill-mode: backwards;
+        }
+        .hero-button:hover {
+            transform: translateY(-5px) scale(1.02);
+            background-color: #5E4F99; /* Primary Dark saat hover */
+            box-shadow: 0 8px 20px rgba(94, 79, 153, 0.5);
+        }
+
+        /* Umum Card Styling */
+        .card {
+            background-color: #ffffff;
+            border-radius: 0.75rem; /* Sudut lebih membulat */
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08); /* Bayangan yang lebih soft */
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #E0E0E0; /* Border halus */
+        }
+        .card:hover {
+            transform: translateY(-8px) scale(1.005); /* Efek angkat yang lebih dramatis */
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15); /* Bayangan lebih besar saat hover */
+        }
+        .card-title {
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 2.2rem; /* Ukuran judul card lebih besar */
+            color: #5E4F99; /* Primary Dark untuk judul */
+            position: relative;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        .card-title::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background-color: #DD84D4; /* Accent Pink */
+            border-radius: 9999px;
+        }
+        .card-with-icon {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+        }
+        .card-icon {
+            font-size: 3rem;
+            color: #DD84D4; /* Accent Pink */
+            margin-bottom: 1.25rem;
+            transition: transform 0.3s ease-in-out;
+        }
+        .card:hover .card-icon {
+            transform: scale(1.1) rotate(5deg); /* Animasi ikon saat hover */
+        }
+
+        /* Profile Image Styling */
+        .profile-img {
+            width: 100%;
+            max-width: 350px; /* Batasi lebar gambar PM utama */
+            height: auto;
+            object-fit: cover;
+            border-radius: 0.75rem; /* Sudut lebih membulat */
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .profile-img:hover {
+            transform: scale(1.01); /* Sedikit zoom saat hover */
+        }
+        .former-pm-img {
+            width: 140px; /* Ukuran gambar mantan PM sedikit lebih besar */
+            height: 140px;
+            object-fit: cover;
+            border-radius: 9999px; /* Bentuk lingkaran sempurna */
+            display: block;
+            margin: 0 auto 1.2rem auto;
+            border: 3px solid #E0E0E0; /* Border luar yang soft */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+        .former-pm-img:hover {
+            transform: scale(1.03) rotate(2deg); /* Efek zoom dan rotasi saat hover */
+            border-color: #8A82E3; /* Primary Medium saat hover */
+        }
+
+        /* Footer Styles */
+        .footer-bg {
+            background-color: #2A2033; /* Very dark desaturated purple for footer */
+            color: #E0E0E0; /* Teks abu-abu terang */
+            padding-top: 4rem;
+            padding-bottom: 2rem;
+            border-top-left-radius: 1.5rem; /* Sudut atas membulat */
+            border-top-right-radius: 1.5rem;
+            box-shadow: 0 -8px 20px rgba(0, 0, 0, 0.15);
+        }
+        .footer-link {
+            color: #E0E0E0;
+            transition: color 0.3s ease, transform 0.2s ease;
+            display: flex; /* Untuk ikon di samping teks */
+            align-items: center;
+        }
+        .footer-link:hover {
+            color: #B08BDB; /* Accent Light saat hover */
+            transform: translateX(5px);
+        }
+        .social-icon {
+            font-size: 1.6rem;
+            color: #E0E0E0;
+            transition: color 0.3s ease, transform 0.2s ease;
+        }
+        .social-icon:hover {
+            color: #B08BDB; /* Accent Light saat hover */
+            transform: scale(1.15);
+        }
+
+        /* News Card Specifics */
+        .news-card-img {
+            width: 100%;
+            height: 200px; /* Tinggi gambar berita lebih kecil */
+            object-fit: cover;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+        }
+        .news-card-date {
+            color: #666666; /* Medium Grey */
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 0.4rem;
+        }
+        .news-card-title {
+            font-weight: 600;
+            font-size: 1.5rem;
+            color: #5E4F99; /* Primary Dark */
+            margin-bottom: 0.6rem;
+        }
+        .news-card-excerpt {
+            color: #666666;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* Contact Section */
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid #D1D5DB;
+            border-radius: 0.5rem;
+            background-color: #F9FAFB;
+            transition: all 0.3s ease;
+        }
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: #8A82E3; /* Primary Medium saat fokus */
+            box-shadow: 0 0 0 3px rgba(138, 130, 227, 0.2);
+        }
+        .contact-info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            color: #666666;
+        }
+        .contact-info-item i {
+            color: #8A82E3; /* Primary Medium untuk ikon kontak */
+            font-size: 1.4rem;
+            margin-right: 1rem;
+        }
+
+        /* Animations */
+        .section-hidden {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .section-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        @keyframes fadeInScale {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        @keyframes slideInUp {
+            from { transform: translateY(60px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes zoomIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        .animate-fadeInUp {
+            animation: slideInUp 0.8s ease-out forwards;
+            animation-fill-mode: backwards;
+        }
+        .animate-zoomIn {
+            animation: zoomIn 0.8s ease-out forwards;
+            animation-fill-mode: backwards;
+        }
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7); /* Lebih gelap */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+        }
+        .modal-overlay.open {
+            opacity: 1;
+            visibility: visible;
+        }
+        .modal-content {
+            background-color: white;
+            padding: 2.5rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            max-width: 500px;
+            width: 90%;
+            transform: translateY(-20px);
+            opacity: 0;
+            transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        }
+        .modal-overlay.open .modal-content {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* Back to Top Button */
+        #back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: #8A82E3; /* Primary Medium */
+            color: white;
+            padding: 1rem 1.25rem;
+            border-radius: 9999px; /* Bentuk lingkaran */
+            font-size: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease-in-out;
+            z-index: 900;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        #back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        #back-to-top:hover {
+            background-color: #5E4F99; /* Primary Dark saat hover */
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+    <!-- Header -->
+    <header class="fixed top-0 left-0 w-full z-50 py-4 transition-all duration-300 ease-in-out header-bg" id="main-header">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
+            <a href="#" onclick="showSection('home'); return false;" class="text-3xl font-bold mb-4 md:mb-0 text-primary-dark flex items-center group">
+                <!-- Ikon PNG dari gambar yang kamu berikan -->
+                <img src="Ajax + 4 Entity(Night).png" alt="Logo Kantor PM" class="h-10 mr-3 hidden md:block" onerror="this.onerror=null; this.src='https://placehold.co/40x40/5E4F99/FFFFFF?text=PM';" />
+                <span class="group-hover:text-accent-pink transition-colors">Kantor Perdana Menteri</span>
+            </a>
+            <!-- Hamburger menu untuk mobile -->
+            <button id="menu-toggle" class="text-primary-dark text-2xl md:hidden focus:outline-none">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav id="main-nav" class="hidden md:block">
+                <ul class="flex flex-col md:flex-row space-y-3 md:space-y-0 md:space-x-6">
+                    <li><a href="#home" class="nav-link text-primary-dark" onclick="showSection('home')">Beranda</a></li>
+                    <li><a href="#executive-track-record" class="nav-link text-primary-dark" onclick="showSection('executive-track-record')">Rekam Jejak Eksekutif</a></li>
+                    <li><a href="#news-announcements" class="nav-link text-primary-dark" onclick="showSection('news-announcements')">Berita & Pengumuman</a></li>
+                    <li><a href="#contact" class="nav-link text-primary-dark" onclick="showSection('contact')">Kontak</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="relative z-0">
+        <!-- Home Section (Enhanced Hero) -->
+        <section id="home" class="hero-section">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h2 class="hero-title">Selamat Datang di Kantor Perdana Menteri</h2>
+                <p class="hero-subtitle">Mewujudkan masa depan yang lebih cerah dengan kepemimpinan yang transparan dan berintegritas.</p>
+                <a href="#executive-track-record" class="hero-button" onclick="showSection('executive-track-record')">Lihat Rekam Jejak Eksekutif <i class="fas fa-arrow-right ml-2"></i></a>
+            </div>
+        </section>
+
+        <!-- Homepage Content: Description and Cards -->
+        <section id="home-content" class="container mx-auto px-6 py-20 section-hidden">
+            <h2 class="text-4xl lg:text-5xl font-bold text-center text-primary-dark mb-16 card-title">Tentang Kami</h2>
+            <p class="text-xl text-gray-700 leading-relaxed max-w-4xl mx-auto text-center mb-12">
+                Sebelumnya, Kabinet digunakan untuk mengelola folder yang berisi file yang sering digunakan oleh pengguna akun Microsoft di berbagai perangkat. Nama Kabinet terkadang mencerminkan karakteristik, gelar, nama, atau fitur ikonik dari pemimpinnya, yang juga terkadang memengaruhi penamaan perangkat. Berikut adalah catatan kabinet yang terbentuk setelah era perangkat LAPTOP-EXCALIBUR (ASUS A516KA FHD-451) berakhir, digantikan oleh Axioo Pongo 725. Kabinet terus eksis hingga saat ini, dengan penambahan tugas Perdana Menteri. Kantor Perdana Menteri adalah direktori resminya.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <!-- Card 1: Visi & Misi -->
+                <div class="card card-with-icon section-hidden">
+                    <i class="fas fa-lightbulb card-icon"></i>
+                    <h3 class="text-2xl font-bold text-primary-medium mb-4">Visi & Misi Kami</h3>
+                    <p class="text-gray-700">Mewujudkan visi bangsa untuk masa depan yang lebih baik, makmur, dan adil bagi seluruh rakyat. Kami berkomitmen pada tata kelola yang transparan dan akuntabel.</p>
+                </div>
+                <!-- Card 2: Program Unggulan -->
+                <div class="card card-with-icon section-hidden">
+                    <i class="fas fa-rocket card-icon"></i>
+                    <h3 class="text-2xl font-bold text-primary-medium mb-4">Program Unggulan</h3>
+                    <p class="text-gray-700">Berbagai inisiatif strategis untuk memajukan ekonomi, pendidikan, kesehatan, dan kesejahteraan sosial, demi kemajuan nasional yang berkelanjutan.</p>
+                </div>
+                <!-- Card 3: Pelayanan Publik -->
+                <div class="card card-with-icon section-hidden">
+                    <i class="fas fa-hands-helping card-icon"></i>
+                    <h3 class="text-2xl font-bold text-primary-medium mb-4">Pelayanan Publik</h3>
+                    <p class="text-gray-700">Kami berdedikasi untuk menyediakan layanan publik yang efisien, responsif, dan mudah diakses, memastikan hak setiap warga terpenuhi.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Executive Track Record Section -->
+        <section id="executive-track-record" class="container mx-auto px-6 py-20 hidden section-hidden">
+            <h2 class="text-4xl lg:text-5xl font-bold text-center text-primary-dark mb-16 card-title">Rekam Jejak Eksekutif</h2>
+
+            <!-- Current Prime Minister -->
+            <div class="card p-10 mb-16 section-hidden">
+                <h3 class="text-3xl font-bold text-primary-medium mb-8 text-center">Perdana Menteri Saat Ini</h3>
+                <div class="flex flex-col md:flex-row items-center md:items-start gap-12">
+                    <!-- Placeholder image dengan fallback -->
+                    <img src="16th Prime Minister (Ouka Shiunji).jpg" alt="Perdana Menteri Ouka Shiunji" class="profile-img md:w-1/3 rounded-lg shadow-xl" onerror="this.onerror=null; this.src='https://placehold.co/350x450/5E4F99/FFFFFF?text=Ajax+Lockhart';">
+                    <div class="md:w-2/3 text-center md:text-left">
+                        <h4 class="text-4xl font-bold text-gray-900 mb-3 leading-tight">Yang Terhormat Ouka Shiunji</h4>
+                        <p class="text-2xl text-gray-600 mb-6 font-medium">Perdana Menteri Ke-16</p>
+                        <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                            Ouka Shiunji adalah Perdana Menteri ke-16, menjabat sejak 30 Juni 2025 atau akhir bulan setelah PM Ajax Lockhart resign untuk mengisi posisi Akun Microsoft. Ouka Shiunji akan mengelola kabinet agar anggaran kabinet dapat terlaksana dengan baik.
+                        <ul class="mt-8 text-gray-700 text-lg space-y-3">
+                            <li class="flex items-center"><i class="fas fa-user-tie text-primary-medium mr-3"></i> <strong>Peran Utama:</strong>  Anggota Kabinet, Kepala Pemerintahan, & Kepala Kantor Perdana Menteri</li>
+                            <li class="flex items-center"><i class="fas fa-tag text-primary-medium mr-3"></i> <strong>Gelar:</strong>One who is worthy of praise</li>
+                            <li class="flex items-center"><i class="fas fa-envelope text-primary-medium mr-3"></i> <strong>Afiliasi:</strong>Shiunji Family</li>
+                            <li class="flex items-center"><i class="fas fa-briefcase text-primary-medium mr-3"></i> <strong>Kabinet:</strong>Ouka</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Former Prime Ministers -->
+            <div class="card p-10 section-hidden">
+                <h3 class="text-3xl font-bold text-primary-medium mb-8 text-center">Mantan Perdana Menteri</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Mantan PM 1: Asyraf, Ghithrif -->
+                    <div class="card p-6 text-center">
+                        <img src="1st Prime Minister (Asyraf, Ghithrif).jpg" alt="Mantan Perdana Menteri Asyraf, Ghithrif" class="former-pm-img" onerror="this.onerror=null; this.src='https://placehold.co/140x140/8A82E3/FFFFFF?text=PM+1';">
+                        <h4 class="text-xl font-semibold text-gray-900">Asyraf, Ghithrif</h4>
+                        <p class="text-gray-600">Perdana Menteri Ke-1</p>
+                        <p class="text-sm text-gray-500 mt-1">Masa Jabatan: Dahulu Kala - 01 Jan 2025</p>
+                        <p class="text-sm text-gray-500 font-semibold">[First Entity]</p>
+                    </div>
+                    <!-- Mantan PM 2: Jean Gunnhildr -->
+                    <div class="card p-6 text-center">
+                        <img src="2nd Prime Minister (Jean Gunnhildr).jpg" alt="Mantan Perdana Menteri Jean Gunnhildr" class="former-pm-img" onerror="this.onerror=null; this.src='https://placehold.co/140x140/8A82E3/FFFFFF?text=PM+2';">
+                        <h4 class="text-xl font-semibold text-gray-900">Jean Gunnhildr</h4>
+                        <p class="text-gray-600">Perdana Menteri Ke-2</p>
+                        <p class="text-sm text-gray-500 mt-1">Masa Jabatan: 01 Jan 2025 - 05 Mar 2025</p>
+                        <p class="text-sm text-gray-500 font-semibold">[Dandelion Knight]</p>
+                    </div>
+                    <!-- Mantan PM 3: Vedrfolnir -->
+                    <div class="card p-6 text-center">
+                        <img src="3rd Prime Minister (Vedrfolnir).jpg" alt="Mantan Perdana Menteri Vedrfolnir" class="former-pm-img" onerror="this.onerror=null; this.src='https://placehold.co/140x140/8A82E3/FFFFFF?text=PM+3';">
+                        <h4 class="text-xl font-semibold text-gray-900">Vedrfolnir</h4>
+                        <p class="text-gray-600">Perdana Menteri Ke-3</p>
+                        <p class="text-sm text-gray-500 mt-1">Masa Jabatan: 05 Mar 2025 - 07 Mar 2025</p>
+                        <p class="text-sm text-gray-500 font-semibold">[The Visionary]</p>
+                    </div>
+                    <!-- Mantan PM 4: Ajax, 11th Fatui Harbingers -->
+                    <div class="card p-6 text-center">
+                        <img src="4th Prime Minister (Ajax, 11th Fatui Harbingers).jpg" alt="Mantan Perdana Menteri Ajax, 11th Fatui Harbingers" class="former-pm-img" onerror="this.onerror=null; this.src='https://placehold.co/140x140/8A82E3/FFFFFF?text=PM+4';">
+                        <h4 class="text-xl font-semibold text-gray-900">Ajax, 11th Fatui Harbingers</h4>
+                        <p class="text-gray-600">Perdana Menteri Ke-4</p>
+                        <p class="text-sm text-gray-500 mt-1">Masa Jabatan: 07 Mar 2024 - 09 Mar 2025</p>
+                        <p class="text-sm text-gray-500 font-semibold">[Author of Cabinet]</p>
+                    </div>
+                     <!-- Mantan PM 5: Viktor Ong -->
+                    <div class="card p-6 text-center">
+                        <img src="5th Prime Minister (Viktor Ong).jpg" alt="Mantan Perdana Menteri Viktor Ong" class="former-pm-img" onerror="this.onerror=null; this.src='https://placehold.co/140x140/8A82E3/FFFFFF?text=PM+5';">
+                        <h4 class="text-xl font-semibold text-gray-900">Viktor Ong</h4>
+                        <p class="text-gray-600">Perdana Menteri Ke-5</p>
+                        <p class="text-sm text-gray-500 mt-1">Masa Jabatan: 09 Mar 2025 - 12 Mar 2025</p>
+                        <p class="text-sm text-gray-500 font-semibold">[Acting Man]</p>
+                    </div>
+                    <!-- Mantan PM 6: Rika Honjouji -->
+                    <div class="card p-6 text-center">
+                        <img src="6th Prime Minister (Rika Honjouji).jpg" alt="Mantan Perdana Menteri Rika Honjouji" class="former-pm-img" onerror="this.onerror=null; this.src='https://placehold.co/140x140/8A82E3/FFFFFF?text=PM+6';">
+                        <h4 class="text-xl font-semibold text-gray-900">Rika Honjouji</h4>
+                        <p class="text-gray-600">Perdana Menteri Ke-6</p>
+                        <p class="text-sm text-gray-500 mt-1">Masa Jabatan: 12 Mar 2025 - 26 Mar 2025</p>
+                        <p class="text-sm text-gray-500 font-semibold">[J.T.C Employee]</p>
+                    </div>
+                    <!-- Mantan PM 7: Ix Uxul Tz'ib Bolon Ch'ule-L (Ixlel) -->
+                    <div class="card p-6 text-center">
+                        <img src="7th Prime Minister (Ixlel).jpg" alt="Mantan Perdana Menteri Ixlel" class="former-pm-img" onerror="this.onerror=null; this.src='https://placehold.co/140x140/8A82E3/FFFFFF?text=PM+7';">
+                        <h4 class="text-xl font-semibold text-gray-900">Ix Uxul Tz'ib Bolon Ch'ule-L</h4>
+                        <p class="text-gray-600">Perdana Menteri Ke-7</p>
+                        <p class="text-sm text-gray-500 mt-1">Masa Jabatan: 26 Mar 2025 - 27 Mar 2025</p>
+                        <p class="text-sm text-gray-500 font-semibold">[Chronicler of the End Times]</p>
+                    </div>
+                    <!-- Mantan PM 8 & 10: Ajax Kazutora -->
+                    <div class="card p-6 text-center">
+                        <img src="8th & 10th Prime Minister (Ajax Kazutora).jpg" alt="Mantan Perdana Menteri Ajax Kazutora" class="former-pm-img" onerror="this.onerror=null; this.src='https://placehold.co/140x140/8A82E3/FFFFFF?text=PM+8+&amp;+10';">
+                        <h4 class="text-xl font-semibold text-gray-900">Ajax Kazutora</h4>
+                        <p class="text-gray-600">Perdana Menteri Ke-8 & 10</p>
+                        <p class="text-sm text-gray-500 mt-1">Masa Jabatan: 28 Mar 2025 - 03 Apr 2025,</p>
+                        <p class="text-sm text-gray-500">12 Apr 2025 - 16 Mei 2025</p>
+                        <p class="text-sm text-gray-500 font-semibold">[The Executor]</p>
+                    </div>
+                    <!-- Mantan PM 9: K'uhul Ajaw -->
+                    <div class="card p-6 text-center">
+                        <img src="9th Prime Minister (K'uhul Ajaw).jpg" alt="Mantan Perdana Menteri K'uhul Ajaw" class="former-pm-img" onerror="this.onerror=null; this.src='https://placehold.co/140x140/8A82E3/FFFFFF?text=PM+9';">
+                        <h4 class="text-xl font-semibold text-gray-900">K'uhul Ajaw</h4>
+                        <p class="text-gray-600">Perdana Menteri Ke-9</p>
+                        <p class="text-sm text-gray-500 mt-1">Masa Jabatan: 03 Apr 2025 - 12 Apr 2025</p>
+                        <p class="text-sm text-gray-500 font-semibold">[Almighty Dragonlord]</p>
+                    </div>
+                    <!-- Mantan PM 11 & 13: Ajax Riftblade -->
+                    <div class="card p-6 text-center">
+                        <img src="11th & 13th Prime Minister (Ajax Riftblade).jpg" alt="Mantan Perdana Menteri Ajax Riftblade" class="former-pm-img" onerror="this.onerror=null; this.src='https://placehold.co/140x140/8A82E3/FFFFFF?text=PM+11+&amp;+13';">
+                        <h4 class="text-xl font-semibold text-gray-900">Ajax Riftblade</h4>
+                        <p class="text-gray-600">Perdana Menteri Ke-11 & 13</p>
+                        <p class="text-sm text-gray-500 mt-1">Masa Jabatan: 16 Mei 2025 - 26 Mei 2025,</p>
+                        <p class="text-sm text-gray-500">30 Mei 2025 - 10 Jun 2025</p>
+                        <p class="text-sm text-gray-500 font-semibold">[High IQ Anomaly]</p>
+                    </div>
+                    <!-- Mantan PM 12: Dainsleif -->
+                    <div class="card p-6 text-center">
+                        <img src="12th Prime Minister (Dainsleif).jpg" alt="Mantan Perdana Menteri Dainsleif" class="former-pm-img" onerror="this.onerror=null; this.src='https://placehold.co/140x140/8A82E3/FFFFFF?text=PM+12';">
+                        <h4 class="text-xl font-semibold text-gray-900">Dainsleif</h4>
+                        <p class="text-gray-600">Perdana Menteri Ke-12</p>
+                        <p class="text-sm text-gray-500 mt-1">Masa Jabatan: 26 Mei 2025 - 30 Mei 2025</p>
+                        <p class="text-sm text-gray-500 font-semibold">[Boughkeeper]</p>
+                    </div>
+                     <!-- Mantan PM 14: Ajax Err -->
+                    <div class="card p-6 text-center">
+                        <img src="14th Prime Minister (Ajax Err).jpg" alt="Mantan Perdana Menteri Ajax Err" class="former-pm-img" onerror="this.onerror=null; this.src='https://placehold.co/140x140/8A82E3/FFFFFF?text=PM+14';">
+                        <h4 class="text-xl font-semibold text-gray-900">Ajax Err</h4>
+                        <p class="text-gray-600">Perdana Menteri Ke-14</p>
+                        <p class="text-sm text-gray-500 mt-1">Masa Jabatan: 10 Jun 2025 - 19 Jun 2025</p>
+                        <p class="text-sm text-gray-500 font-semibold">[2 Main Browser Keeper]</p>
+                    </div>
+                    <!-- Mantan PM 15: Ajax Lockhart -->
+                    <div class="card p-6 text-center">
+                        <img src="15th Prime Minister (Ajax Lockhart).jpg" alt="Mantan Perdana Menteri Ajax Lockhart" class="former-pm-img" onerror="this.onerror=null; this.src='https://placehold.co/140x140/8A82E3/FFFFFF?text=PM+15';">
+                        <h4 class="text-xl font-semibold text-gray-900">Ajax Lockhart</h4>
+                        <p class="text-gray-600">Perdana Menteri Ke-15</p>
+                        <p class="text-sm text-gray-500 mt-1">Masa Jabatan: 19 Jun 2025 - 30 Jun 2025</p>
+                        <p class="text-sm text-gray-500 font-semibold">[Full Authority Holder of Second Entity]</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- News & Announcements Section -->
+        <section id="news-announcements" class="container mx-auto px-6 py-20 hidden section-hidden">
+            <h2 class="text-4xl lg:text-5xl font-bold text-center text-primary-dark mb-16 card-title">Berita & Pengumuman Terbaru</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+              <!-- News 1: Contoh Berita Baru -->
+                <div class="card p-6">
+                    <img src="perdana_baru.jpg" alt="Perdana Menteri Baru" class="news-card-img" onerror="this.onerror=null; this.src='https://placehold.co/600x400/B08BDB/FFFFFF?text=Perdana+Menteri+Baru';">
+                    <p class="news-card-date"> 30 Juni 2025</p>
+                    <h3 class="news-card-title">Ajax Lockhart resign mengisi posisi Akun Microsoft, akhirnya Ouka Shiunji menjadi Perdana Menteri Ke-16</h3>
+                    <p class="text-gray-700 leading-relaxed mb-4">Ajax Lockhart resmi resign dari jabatan Perdana Menteri, pada penutup bulan juni ini, Ouka Shiunji kemudian mengambil alih posisi tersebut untuk menggantikan Lockhart. </p>
+                    <button onclick="showAlert('Ajax Lockhart resign mengisi posisi Akun Microsoft, akhirnya Ouka Shiunji menjadi Perdana Menteri Ke-16:\n\nOuka Shiunji kemudian mengambil alih posisi tersebut untuk menggantikan Lockhart.');" class="text-primary-medium hover:underline font-medium flex items-center mt-4">
+                        Baca Selengkapnya <i class="fas fa-angle-right ml-2"></i>
+                    </button>
+                </div>
+              <!-- News 2 -->
+                <div class="card p-6">
+                    <img src="news_website_launch.jpg" alt="Peluncuran Website Kantor Perdana Menteri" class="news-card-img" onerror="this.onerror=null; this.src='https://placehold.co/600x400/8A82E3/FFFFFF?text=Peluncuran+Website';">
+                    <p class="news-card-date">25 Juni 2025</p>
+                    <h3 class="news-card-title">Laman HTML Kantor Perdana Menteri Diluncurkan</h3>
+                    <p class="news-card-excerpt">Laman HTML kini dapat diakses melalui direktori publik Kantor Perdana Menteri, yang dikembangkan bekerja sama dengan Gemini AI.</p>
+                    <button onclick="showAlert('Laman HTML Kantor Perdana Menteri Diluncurkan:\n\nLaman HTML kini dapat diakses melalui direktori publik Kantor Perdana Menteri, yang dikembangkan bekerja sama dengan Gemini AI.');" class="text-primary-medium hover:underline font-medium flex items-center mt-4">
+                        Baca Selengkapnya <i class="fas fa-angle-right ml-2"></i>
+                    </button>
+                </div>  
+                <!-- News 3 -->
+                <div class="card p-6">
+                    <img src="news_new_pm_appointed.jpg" alt="Pelantikan Perdana Menteri Baru" class="news-card-img" onerror="this.onerror=null; this.src='https://placehold.co/600x400/5E4F99/FFFFFF?text=PM+Baru+Dilantik';">
+                    <p class="news-card-date">19 Juni 2025</p>
+                    <h3 class="news-card-title">Ajax Lockhart Menjadi Perdana Menteri Ke-15</h3>
+                    <p class="text-gray-700 leading-relaxed mb-4">Bulan ini kita memiliki Perdana Menteri ke-15 yang baru, Ajax Lockhart, yang mulai menjabat menggantikan Ajax Err, Perdana Menteri sebelumnya. Lockhart berharap dapat membuat perubahan besar pada sistem kabinet.</p>
+                    <button onclick="showAlert('Ajax Lockhart becomes 15th Prime Minister:\n\nThis month we have a new 15th Prime Minister, Ajax Lockhart, who is taking office to replace Ajax Err, the previous Prime Minister. Lockhart hopes to make major changes to the cabinet system.');" class="text-primary-medium hover:underline font-medium flex items-center mt-4">
+                        Baca Selengkapnya <i class="fas fa-angle-right ml-2"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="container mx-auto px-6 py-20 hidden section-hidden">
+            <h2 class="text-4xl lg:text-5xl font-bold text-center text-primary-dark mb-16 card-title">Hubungi Kami</h2>
+            <div class="card p-10 max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div class="contact-info">
+                    <p class="text-lg text-gray-700 leading-relaxed mb-8">
+                        Jika Anda memiliki pertanyaan, saran, atau ingin memberikan umpan balik yang konstruktif, jangan ragu untuk menghubungi kami melalui informasi di bawah ini. Kami siap membantu!
+                    </p>
+                    <div class="space-y-4 text-lg">
+                        <div class="contact-info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Direktori Resmi:</h4>
+                                <p class="text-gray-700">Kantor Perdana Menteri</p>
+                            </div>
+                        </div>
+                        <div class="contact-info-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Telepon Resmi:</h4>
+                                <p class="text-gray-700">+62 819-1723-1199</p>
+                            </div>
+                        </div>
+                        <div class="contact-info-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Email Publik:</h4>
+                                <p class="text-primary-medium"><a href="mailto:callmethreat199@gmail.com" class="hover:underline">callmethreat199@gmail.com</a></p>
+                            </div>
+                        </div>
+                        <div class="contact-info-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Jam Operasional:</h4>
+                                <p class="text-gray-700">Senin - Jumat, 08:00 - 17:00 (Waktu Lokal)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Contact Form (Opsional, bisa ditambahkan nanti)
+                <div class="contact-form">
+                    <h3 class="text-2xl font-bold text-primary-medium mb-6">Kirim Pesan</h3>
+                    <form>
+                        <div class="mb-4">
+                            <input type="text" placeholder="Nama Lengkap Anda" class="w-full p-3 border rounded-lg focus:ring focus:ring-accent-pink">
+                        </div>
+                        <div class="mb-4">
+                            <input type="email" placeholder="Email Anda" class="w-full p-3 border rounded-lg focus:ring focus:ring-accent-pink">
+                        </div>
+                        <div class="mb-4">
+                            <textarea placeholder="Pesan Anda" rows="5" class="w-full p-3 border rounded-lg focus:ring focus:ring-accent-pink"></textarea>
+                        </div>
+                        <button type="submit" class="bg-primary-medium text-white py-3 px-6 rounded-lg font-semibold hover:bg-primary-dark transition duration-300">Kirim Pesan</button>
+                    </form>
+                </div>
+                -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-footer-dark text-white py-12 mt-20 rounded-t-3xl">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-10">
+                <!-- Kolom 1: Logo & Deskripsi Singkat -->
+                <div class="text-center md:text-left">
+                    <h3 class="text-3xl font-bold mb-4 flex items-center justify-center md:justify-start">
+                        <!-- Ikon PNG di footer -->
+                        <img src="Ajax + 4 Entity(Night).png" alt="Logo Kantor PM" class="h-10 mr-3" onerror="this.onerror=null; this.src='https://placehold.co/40x40/5E4F99/FFFFFF?text=PM';" />
+                        Kantor PM
+                    </h3>
+                    <p class="text-gray-400 leading-relaxed max-w-xs mx-auto md:mx-0">
+                        Kepemimpinan transparan untuk masa depan yang lebih cerah dan berintegritas. Melayani rakyat sepenuh hati.
+                    </p>
+                </div>
+
+                <!-- Kolom 2: Tautan Cepat -->
+                <div class="text-center md:text-left">
+                    <h4 class="text-2xl font-semibold mb-6 text-accent-light">Tautan Cepat</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#home" onclick="showSection('home'); return false;" class="footer-link flex items-center justify-center md:justify-start">
+                            <i class="fas fa-home text-gray-500 text-sm mr-3"></i> Beranda
+                        </a></li>
+                        <li><a href="#executive-track-record" onclick="showSection('executive-track-record'); return false;" class="footer-link flex items-center justify-center md:justify-start">
+                            <i class="fas fa-chart-line text-gray-500 text-sm mr-3"></i> Rekam Jejak
+                        </a></li>
+                        <li><a href="#news-announcements" onclick="showSection('news-announcements'); return false;" class="footer-link flex items-center justify-center md:justify-start">
+                            <i class="fas fa-newspaper text-gray-500 text-sm mr-3"></i> Berita & Info
+                        </a></li>
+                        <li><a href="#contact" onclick="showSection('contact'); return false;" class="footer-link flex items-center justify-center md:justify-start">
+                            <i class="fas fa-envelope text-gray-500 text-sm mr-3"></i> Kontak
+                        </a></li>
+                    </ul>
+                </div>
+
+                <!-- Kolom 3: Kontak & Sosial Media -->
+                <div class="text-center md:text-left">
+                    <h4 class="text-2xl font-semibold mb-6 text-accent-light">Hubungi Kami</h4>
+                    <p class="text-gray-400 mb-3 flex items-center justify-center md:justify-start">
+                        <i class="fas fa-map-marker-alt mr-3 text-gray-500"></i> Kantor Perdana Menteri
+                    </p>
+                    <p class="text-gray-400 mb-3 flex items-center justify-center md:justify-start">
+                        <i class="fas fa-phone-alt mr-3 text-gray-500"></i> +62 819-1723-1199
+                    </p>
+                    <p class="text-gray-400 mb-6 flex items-center justify-center md:justify-start">
+                        <i class="fas fa-envelope mr-3 text-gray-500"></i> callmethreat199@gmail.com
+                    </p>
+                    <div class="flex justify-center md:justify-start space-x-6">
+                        <a href="#" class="social-icon hover:text-accent-light" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon hover:text-accent-light" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon hover:text-accent-light" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon hover:text-accent-light" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="border-gray-700 mb-8">
+            <p class="text-gray-500 text-center text-sm">&copy; 2025 Kantor Perdana Menteri. Hak Cipta Dilindungi.</p>
+        </div>
+    </footer>
+
+    <!-- Tombol Back to Top -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 z-900 bg-primary-medium text-white p-4 rounded-full shadow-lg transition-all duration-300 ease-in-out hidden" aria-label="Kembali ke atas">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Modal untuk Alert Kustom -->
+    <div id="custom-alert-modal" class="modal-overlay">
+        <div class="modal-content">
+            <h3 id="modal-title" class="text-2xl font-bold text-primary-dark mb-4">Informasi</h3>
+            <p id="modal-message" class="text-gray-700 mb-6"></p>
+            <div class="flex justify-end">
+                <button onclick="closeAlert()" class="bg-primary-medium text-white py-2 px-6 rounded-md hover:bg-primary-dark transition duration-300">Oke</button>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        // Fungsi untuk menampilkan modal alert kustom
+        function showAlert(message, title = 'Informasi') {
+            document.getElementById('modal-title').innerText = title;
+            document.getElementById('modal-message').innerText = message;
+            document.getElementById('custom-alert-modal').classList.add('open');
+        }
+
+        // Fungsi untuk menutup modal alert kustom
+        function closeAlert() {
+            document.getElementById('custom-alert-modal').classList.remove('open');
+        }
+
+        // Toggle untuk menu hamburger di mobile
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const nav = document.getElementById('main-nav');
+            nav.classList.toggle('hidden');
+            nav.classList.toggle('block');
+            // Menambah kelas untuk efek dropdown mobile
+            if (nav.classList.contains('block')) {
+                // Saat menu terbuka, ubah warna teks nav link untuk kontras dengan background gelap
+                document.querySelectorAll('#main-nav .nav-link').forEach(link => {
+                    link.classList.remove('text-primary-dark'); /* Ubah dari text-primary-blue */
+                    link.classList.add('text-white');
+                });
+                nav.classList.add('flex', 'flex-col', 'items-center', 'mt-4', 'pb-4', 'bg-primary-dark', 'rounded-b-lg', 'md:hidden');
+            } else {
+                // Saat menu tertutup, kembalikan warna teks nav link
+                document.querySelectorAll('#main-nav .nav-link').forEach(link => {
+                    link.classList.remove('text-white');
+                    link.classList.add('text-primary-dark'); /* Ubah dari text-primary-blue */
+                });
+                nav.classList.remove('flex', 'flex-col', 'items-center', 'mt-4', 'pb-4', 'bg-primary-dark', 'rounded-b-lg', 'md:hidden');
+            }
+        });
+
+        // Smooth scroll untuk internal link
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+
+                // Tutup menu mobile jika terbuka saat link diklik
+                const mainNav = document.getElementById('main-nav');
+                if (mainNav.classList.contains('block')) {
+                    mainNav.classList.remove('block');
+                    mainNav.classList.add('hidden');
+                    mainNav.classList.remove('flex', 'flex-col', 'items-center', 'mt-4', 'pb-4', 'bg-primary-dark', 'rounded-b-lg', 'md:hidden');
+                     document.querySelectorAll('#main-nav .nav-link').forEach(link => {
+                        link.classList.remove('text-white');
+                        link.classList.add('text-primary-dark'); /* Ubah dari text-primary-blue */
+                    });
+                }
+
+
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - (document.getElementById('main-header').offsetHeight), /* Sesuaikan dengan tinggi header tetap */
+                        behavior: 'smooth'
+                    });
+                    showSection(targetId);
+                }
+            });
+        });
+
+        // Fungsi untuk menampilkan atau menyembunyikan bagian dengan animasi fade-in
+        function showSection(id) {
+            const sectionIds = ['home', 'home-content', 'executive-track-record', 'news-announcements', 'contact'];
+
+            sectionIds.forEach(sectionId => {
+                const section = document.getElementById(sectionId);
+                if (section) {
+                    if (sectionId === id || (sectionId === 'home-content' && id === 'home')) {
+                        section.classList.remove('hidden');
+                        setTimeout(() => {
+                            section.classList.remove('section-hidden');
+                            section.classList.add('section-visible');
+                            // Trigger animations for inner elements if needed
+                            section.querySelectorAll('.section-hidden').forEach(el => {
+                                el.classList.remove('section-hidden');
+                                el.classList.add('section-visible');
+                            });
+                        }, 50); // Delay kecil untuk memastikan display block dulu
+                    } else {
+                        section.classList.remove('section-visible');
+                        section.classList.add('section-hidden');
+                        setTimeout(() => {
+                            section.classList.add('hidden');
+                        }, 800); // Cocokkan dengan durasi transisi
+                    }
+                }
+            });
+
+            // Update active nav link
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.classList.remove('nav-link-current');
+                // Cek jika href link cocok dengan ID bagian saat ini
+                if (link.getAttribute('href') === `#${id}`) {
+                    link.classList.add('nav-link-current');
+                } else if (id === 'home-content' && link.getAttribute('href') === '#home') {
+                    link.classList.add('nav-link-current');
+                }
+            });
+        }
+
+        // Efek scroll header
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('main-header');
+            const navLinks = document.querySelectorAll('#main-nav .nav-link');
+            const logoText = document.querySelector('#main-header .group span');
+            const logoImage = document.querySelector('#main-header .group img'); /* Select the image */
+            const menuToggleIcon = document.querySelector('#menu-toggle i');
+
+
+            if (window.scrollY > 80) { /* Sesuaikan ambang batas scroll */
+                header.classList.add('header-scrolled');
+                header.classList.remove('py-4');
+                header.classList.add('py-3');
+                // Ubah warna teks dan ikon di header saat di-scroll
+                logoText.classList.remove('text-primary-dark'); /* Ubah dari text-primary-blue */
+                logoText.classList.add('text-white');
+                // logoImage.classList.remove('filter-grayscale'); /* Kalau ada efek filter, hapus */
+                // logoImage.style.filter = 'brightness(1.2)'; /* Contoh, bisa disesuaikan */
+                menuToggleIcon.classList.remove('text-primary-dark'); /* Ubah dari text-primary-blue */
+                menuToggleIcon.classList.add('text-white');
+                navLinks.forEach(link => {
+                    link.classList.remove('text-primary-dark'); /* Ubah dari text-primary-blue */
+                    link.classList.add('text-white');
+                });
+            } else {
+                header.classList.remove('header-scrolled');
+                header.classList.remove('py-3');
+                header.classList.add('py-4');
+                // Kembalikan warna teks dan ikon di header saat tidak di-scroll
+                logoText.classList.remove('text-white');
+                logoText.classList.add('text-primary-dark'); /* Ubah dari text-primary-blue */
+                // logoImage.style.filter = 'none'; /* Hapus efek filter */
+                menuToggleIcon.classList.remove('text-white');
+                menuToggleIcon.classList.add('text-primary-dark'); /* Ubah dari text-primary-blue */
+                navLinks.forEach(link => {
+                    link.classList.remove('text-white');
+                    link.classList.add('text-primary-dark'); /* Ubah dari text-primary-blue */
+                });
+            }
+        });
+
+        // Logika untuk tombol "Back to Top"
+        const backToTopButton = document.getElementById('back-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) { // Tampilkan tombol setelah scroll 300px
+                backToTopButton.classList.add('show');
+                backToTopButton.classList.remove('hidden');
+            } else {
+                backToTopButton.classList.remove('show');
+                backToTopButton.classList.add('hidden');
+            }
+        });
+
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+
+        // Inisialisasi visibilitas bagian saat load dan observasi untuk animasi
+        document.addEventListener('DOMContentLoaded', () => {
+            const sectionsToObserve = document.querySelectorAll('section');
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15 /* Meningkatkan threshold untuk trigger lebih awal */
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.remove('section-hidden');
+                        entry.target.classList.add('section-visible');
+                        // Opsional: stop observing setelah terlihat untuk performa
+                        // observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            sectionsToObserve.forEach(section => {
+                // Semua section dimulai dengan hidden kecuali home dan home-content
+                if (section.id !== 'home' && section.id !== 'home-content') {
+                    section.classList.add('hidden');
+                    section.classList.add('section-hidden');
+                } else {
+                    // Home dan home-content juga dimulai dengan section-hidden untuk animasi awal
+                    section.classList.add('section-hidden');
+                }
+                observer.observe(section);
+            });
+
+            // Set link navigasi aktif awal berdasarkan URL hash atau default ke home
+            const currentHash = window.location.hash.substring(1);
+            if (currentHash) {
+                showSection(currentHash);
+            } else {
+                showSection('home');
+            }
+            // Memicu showSection secara manual untuk home dan home-content untuk memastikan animasi awal bermain
+            showSection('home');
+
+            // Set the initial color of the logo and nav links based on header-bg class
+            const header = document.getElementById('main-header');
+            const logoText = document.querySelector('#main-header .group span');
+            const logoImage = document.querySelector('#main-header .group img'); /* Select the image */
+            const menuToggleIcon = document.querySelector('#menu-toggle i');
+            const navLinks = document.querySelectorAll('#main-nav .nav-link');
+
+            if (header.classList.contains('header-scrolled')) {
+                logoText.classList.remove('text-primary-dark');
+                logoText.classList.add('text-white');
+                // logoImage.classList.remove('filter-grayscale');
+                // logoImage.style.filter = 'brightness(1.2)';
+                menuToggleIcon.classList.remove('text-primary-dark');
+                menuToggleIcon.classList.add('text-white');
+                navLinks.forEach(link => {
+                    link.classList.remove('text-primary-dark');
+                    link.classList.add('text-white');
+                });
+            } else {
+                logoText.classList.remove('text-white');
+                logoText.classList.add('text-primary-dark');
+                // logoImage.style.filter = 'none';
+                menuToggleIcon.classList.remove('text-white');
+                menuToggleIcon.classList.add('text-primary-dark');
+                navLinks.forEach(link => {
+                    link.classList.remove('text-white');
+                    link.classList.add('text-primary-dark');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
