@@ -1,1 +1,1 @@
-Contoh Website Kantor Perdana Menter
+Website resmi direktori Kantor Perdana Menteri
