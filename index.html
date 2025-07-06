@@ -19,23 +19,23 @@
         /* Gaya dasar untuk body, menggunakan font Inter */
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #F8F8F8; /* Warna paling terang dari palet (putih) */
+            background-color: #F6F6F6; /* Warna paling terang dari palet (putih) */
             color: #333333; /* Dark Grey untuk teks utama */
             line-height: 1.7; /* Meningkatkan keterbacaan baris */
             overflow-x: hidden; /* Mencegah scrolling horizontal yang tidak diinginkan */
         }
 
         /* Palet warna kustom yang baru, terinspirasi dari gambar PNG */
-        .bg-primary-dark { background-color: #748873; } /* Hijau dari palet */
-        .bg-primary-medium { background-color: #D1A980; } /* Cokelat muda/pasir dari palet */
-        .bg-accent-light { background-color: #E5E0D8; } /* Beige/putih tulang dari palet */
-        .bg-accent-pink { background-color: #F8F8F8; } /* Putih dari palet (digunakan sebagai aksen terang) */
-        .text-primary-dark { color: #748873; }
-        .text-primary-medium { color: #D1A980; }
-        .text-accent-light { color: #E5E0D8; }
-        .text-accent-pink { color: #F8F8F8; }
-        .border-primary-dark { border-color: #748873; }
-        .bg-footer-dark { background-color: #5A6B59; } /* Hijau yang sedikit lebih gelap untuk footer */
+        .bg-primary-dark { background-color: #8785A2; } /* Abu-abu Kebiruan dari palet */
+        .bg-primary-medium { background-color: #FFC7C7; } /* Merah Muda Terang dari palet */
+        .bg-accent-light { background-color: #FFE2E2; } /* Merah Muda Lebih Terang dari palet */
+        .bg-accent-pink { background-color: #F6F6F6; } /* Putih dari palet (digunakan sebagai aksen terang) */
+        .text-primary-dark { color: #8785A2; }
+        .text-primary-medium { color: #FFC7C7; }
+        .text-accent-light { color: #FFE2E2; }
+        .text-accent-pink { color: #F6F6F6; }
+        .border-primary-dark { border-color: #8785A2; }
+        .bg-footer-dark { background-color: #687FE5; } /* Biru yang sedikit lebih gelap untuk footer, disesuaikan dari palet */
 
 
         /* Header kustom untuk efek scroll yang dinamis */
@@ -43,10 +43,10 @@
             background-color: rgba(255, 255, 255, 0.95); /* Sedikit transparan saat tidak di-scroll */
             backdrop-filter: blur(5px); /* Efek blur untuk background */
             transition: background-color 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
-            border-bottom: 1px solid rgba(116, 136, 115, 0.1); /* Garis bawah yang halus */
+            border-bottom: 1px solid rgba(135, 133, 162, 0.1); /* Garis bawah yang halus, disesuaikan */
         }
         .header-scrolled {
-            background-color: #748873; /* Primary Dark saat di-scroll */
+            background-color: #8785A2; /* Primary Dark saat di-scroll */
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25); /* Bayangan lebih dalam */
             border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* Garis bawah lebih samar */
         }
@@ -59,23 +59,23 @@
             border-radius: 0.5rem; /* Sudut lebih lembut */
         }
         .nav-link:hover {
-            color: #D1A980; /* Primary Medium saat hover */
-            background-color: rgba(229, 224, 216, 0.1); /* Sedikit highlight di background */
+            color: #FFC7C7; /* Primary Medium saat hover */
+            background-color: rgba(255, 226, 226, 0.1); /* Sedikit highlight di background, disesuaikan */
         }
         .header-scrolled .nav-link {
             color: white; /* Putih saat header di-scroll */
         }
         .header-scrolled .nav-link:hover {
-            color: #E5E0D8; /* Accent Light saat hover */
+            color: #FFE2E2; /* Accent Light saat hover */
             background-color: rgba(255, 255, 255, 0.1); /* Background putih transparan saat hover */
         }
         .nav-link-current {
-            color: #D1A980; /* Primary Medium untuk yang aktif */
+            color: #FFC7C7; /* Primary Medium untuk yang aktif */
             font-weight: 600;
-            background-color: rgba(229, 224, 216, 0.05); /* Background sedikit berbeda */
+            background-color: rgba(255, 226, 226, 0.05); /* Background sedikit berbeda, disesuaikan */
         }
         .header-scrolled .nav-link-current {
-            color: #F8F8F8; /* Accent Pink (putih) untuk yang aktif saat di-scroll */
+            color: #F6F6F6; /* Accent Pink (putih) untuk yang aktif saat di-scroll */
             background-color: rgba(255, 255, 255, 0.08);
         }
 
@@ -84,7 +84,7 @@
             position: relative;
             height: 80vh; /* Tinggi yang lebih sesuai */
             min-height: 550px;
-            background-image: url('Prime Minister Office.jpg'); /* Gambar background */
+            background-image: url('Ouka.png'); /* Gambar background */
             background-size: cover;
             background-position: center;
             display: flex;
@@ -101,7 +101,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to bottom, rgba(116, 136, 115, 0.7), rgba(209, 169, 128, 0.4)); /* Overlay gradasi hijau/cokelat muda */
+            background: linear-gradient(to bottom, rgba(135, 133, 162, 0.7), rgba(255, 199, 199, 0.4)); /* Overlay gradasi abu-abu kebiruan/merah muda, disesuaikan */
             z-index: 1;
         }
         .hero-content {
@@ -128,7 +128,7 @@
             animation-fill-mode: backwards;
         }
         .hero-button {
-            background-color: #D1A980; /* Primary Medium */
+            background-color: #FFC7C7; /* Primary Medium */
             color: #333333; /* Warna teks gelap agar kontras */
             padding: 1rem 2.5rem;
             border-radius: 0.5rem;
@@ -136,15 +136,15 @@
             font-weight: 600;
             display: inline-block;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(209, 169, 128, 0.4);
+            box-shadow: 0 4px 15px rgba(255, 199, 199, 0.4); /* Disesuaikan */
             animation: zoomIn 0.8s ease-out forwards 0.6s;
             animation-fill-mode: backwards;
         }
         .hero-button:hover {
             transform: translateY(-5px) scale(1.02);
-            background-color: #748873; /* Primary Dark saat hover */
+            background-color: #8785A2; /* Primary Dark saat hover */
             color: white; /* Ubah warna teks menjadi putih saat hover */
-            box-shadow: 0 8px 20px rgba(116, 136, 115, 0.5);
+            box-shadow: 0 8px 20px rgba(135, 133, 162, 0.5); /* Disesuaikan */
         }
 
         /* Umum Card Styling */
@@ -164,7 +164,7 @@
             font-family: 'Inter', sans-serif;
             font-weight: 700;
             font-size: 2.2rem; /* Ukuran judul card lebih besar */
-            color: #748873; /* Primary Dark untuk judul */
+            color: #8785A2; /* Primary Dark untuk judul */
             position: relative;
             padding-bottom: 0.5rem;
             margin-bottom: 1rem;
@@ -177,7 +177,7 @@
             transform: translateX(-50%);
             width: 50px;
             height: 3px;
-            background-color: #D1A980; /* Primary Medium */
+            background-color: #FFC7C7; /* Primary Medium */
             border-radius: 9999px;
         }
         .card-with-icon {
@@ -189,7 +189,7 @@
         }
         .card-icon {
             font-size: 3rem;
-            color: #D1A980; /* Primary Medium */
+            color: #FFC7C7; /* Primary Medium */
             margin-bottom: 1.25rem;
             transition: transform 0.3s ease-in-out;
         }
@@ -223,12 +223,12 @@
         }
         .former-pm-img:hover {
             transform: scale(1.03) rotate(2deg); /* Efek zoom dan rotasi saat hover */
-            border-color: #D1A980; /* Primary Medium saat hover */
+            border-color: #FFC7C7; /* Primary Medium saat hover */
         }
 
         /* Footer Styles */
         .footer-bg {
-            background-color: #5A6B59; /* Very dark desaturated green for footer */
+            background-color: #8785A2; /* Abu-abu Kebiruan dari palet */
             color: #E0E0E0; /* Teks abu-abu terang */
             padding-top: 4rem;
             padding-bottom: 2rem;
@@ -243,16 +243,16 @@
             align-items: center;
         }
         .footer-link:hover {
-            color: #E5E0D8; /* Accent Light saat hover */
+            color: #FFE2E2; /* Accent Light saat hover */
             transform: translateX(5px);
         }
         .social-icon {
             font-size: 1.6rem;
-            color: #D1A980; /* Mengubah warna ikon sosial menjadi cokelat dari palet */
+            color: #FFC7C7; /* Mengubah warna ikon sosial menjadi merah muda dari palet */
             transition: color 0.3s ease, transform 0.2s ease;
         }
         .social-icon:hover {
-            color: #E5E0D8; /* Accent Light saat hover */
+            color: #FFE2E2; /* Accent Light saat hover */
             transform: scale(1.15);
         }
 
@@ -274,7 +274,7 @@
         .news-card-title {
             font-weight: 600;
             font-size: 1.5rem;
-            color: #748873; /* Primary Dark */
+            color: #8785A2; /* Primary Dark */
             margin-bottom: 0.6rem;
         }
         .news-card-excerpt {
@@ -296,8 +296,8 @@
         .contact-form input:focus,
         .contact-form textarea:focus {
             outline: none;
-            border-color: #D1A980; /* Primary Medium saat fokus */
-            box-shadow: 0 0 0 3px rgba(209, 169, 128, 0.2);
+            border-color: #FFC7C7; /* Primary Medium saat fokus */
+            box-shadow: 0 0 0 3px rgba(255, 199, 199, 0.2); /* Disesuaikan */
         }
         .contact-info-item {
             display: flex;
@@ -306,7 +306,7 @@
             color: white; /* Mengubah warna teks info kontak menjadi putih */
         }
         .contact-info-item i {
-            color: #D1A980; /* Primary Medium untuk ikon kontak */
+            color: #FFC7C7; /* Primary Medium untuk ikon kontak */
             font-size: 1.4rem;
             margin-right: 1rem;
         }
@@ -382,7 +382,7 @@
             position: fixed;
             bottom: 2rem;
             right: 2rem;
-            background-color: #D1A980; /* Primary Medium */
+            background-color: #FFC7C7; /* Primary Medium */
             color: #333333; /* Warna teks gelap agar kontras */
             padding: 1rem 1.25rem;
             border-radius: 9999px; /* Bentuk lingkaran */
@@ -401,7 +401,7 @@
         }
 
         #back-to-top:hover {
-            background-color: #748873; /* Primary Dark saat hover */
+            background-color: #8785A2; /* Primary Dark saat hover */
             color: white; /* Ubah warna teks menjadi putih saat hover */
             transform: translateY(-5px) scale(1.05);
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
@@ -438,7 +438,7 @@
         <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
             <a href="#" onclick="showSection('home'); return false;" class="text-3xl font-bold mb-4 md:mb-0 text-primary-dark flex items-center group">
                 <!-- Ikon PNG dari gambar yang kamu berikan -->
-                <img src="Logo KPM.png" alt="Logo Kantor PM" class="h-10 mr-3 hidden md:block" onerror="this.onerror=null; this.src='https://placehold.co/40x40/748873/FFFFFF?text=PM';" />
+                <img src="Logo KPM.png" alt="Logo Kantor PM" class="h-10 mr-3 hidden md:block" onerror="this.onerror=null; this.src='https://placehold.co/40x40/8785A2/FFFFFF?text=PM';" />
                 <span class="group-hover:text-primary-medium transition-colors">KPM</span>
             </a>
             <!-- Hamburger menu untuk mobile -->
@@ -508,7 +508,7 @@
                 <h3 class="text-3xl font-bold text-primary-medium mb-8 text-center">Perdana Menteri Saat Ini</h3>
                 <div class="flex flex-col md:flex-row items-center md:items-start gap-12">
                     <!-- Placeholder image dengan fallback -->
-                    <img src="16th Prime Minister (Ouka Shiunji).jpg" alt="Perdana Menteri Ouka Shiunji" class="profile-img md:w-1/3 rounded-lg shadow-xl" onerror="this.onerror=null; this.src='https://placehold.co/350x450/748873/FFFFFF?text=Ajax+Lockhart';">
+                    <img src="16th Prime Minister (Ouka Shiunji).jpg" alt="Perdana Menteri Ouka Shiunji" class="profile-img md:w-1/3 rounded-lg shadow-xl" onerror="this.onerror=null; this.src='https://placehold.co/350x450/8785A2/FFFFFF?text=Ajax+Lockhart';">
                     <div class="md:w-2/3 text-center md:text-left">
                         <h4 class="text-4xl font-bold text-gray-900 mb-3 leading-tight">"Her Exellency" Ouka Shiunji</h4>
                         <p class="text-2xl text-gray-600 mb-6 font-medium">Perdana Menteri Ke-16</p>
@@ -530,7 +530,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     <!-- Mantan PM 1: Asyraf, Ghithrif -->
                     <div class="card p-6 text-center">
-                        <img src="1st Prime Minister (Asyraf, Ghithrif).jpg" alt="Mantan Perdana Menteri Asyraf, Ghithrif" class="former-pm-img" onerror="this.onerror=null; this.src='https://placehold.co/140x140/D1A980/333333?text=PM+1';">
+                        <img src="1st Prime Minister (Asyraf, Ghithrif).jpg" alt="Mantan Perdana Menteri Asyraf, Ghithrif" class="former-pm-img" onerror="this.onerror=null; this.src='https://placehold.co/140x140/FFC7C7/333333?text=PM+1';">
                         <h4 class="text-xl font-semibold text-gray-900">Asyraf, Ghithrif</h4>
                         <p class="text-gray-600">Perdana Menteri Ke-1</p>
                         <p class="text-sm text-gray-500 mt-1">Masa Jabatan: Dahulu Kala - 01 Jan 2025</p>
@@ -538,7 +538,7 @@
                     </div>
                     <!-- Mantan PM 2: Jean Gunnhildr -->
                     <div class="card p-6 text-center">
-                        <img src="2nd Prime Minister (Jean Gunnhildr).jpg" alt="Mantan Perdana Menteri Jean Gunnhildr" class="former-pm-img" onerror="this.onerror=null; this.src='https://placehold.co/140x140/D1A980/333333?text=PM+2';">
+                        <img src="2nd Prime Minister (Jean Gunnhildr).jpg" alt="Mantan Perdana Menteri Jean Gunnhildr" class="former-pm-img" onerror="this.onerror=null; this.src='https://placehold.co/140x140/FFC7C7/333333?text=PM+2';">
                         <h4 class="text-xl font-semibold text-gray-900">Jean Gunnhildr</h4>
                         <p class="text-gray-600">Perdana Menteri Ke-2</p>
                         <p class="text-sm text-gray-500 mt-1">Masa Jabatan: 01 Jan 2025 - 05 Mar 2025</p>
@@ -546,7 +546,7 @@
                     </div>
                     <!-- Mantan PM 3: Vedrfolnir -->
                     <div class="card p-6 text-center">
-                        <img src="3rd Prime Minister (Vedrfolnir).jpg" alt="Mantan Perdana Menteri Vedrfolnir" class="former-pm-img" onerror="this.onerror=null; this.src='https://placehold.co/140x140/D1A980/333333?text=PM+3';">
+                        <img src="3rd Prime Minister (Vedrfolnir).jpg" alt="Mantan Perdana Menteri Vedrfolnir" class="former-pm-img" onerror="this.onerror=null; this.src='https://placehold.co/140x140/FFC7C7/333333?text=PM+3';">
                         <h4 class="text-xl font-semibold text-gray-900">Vedrfolnir</h4>
                         <p class="text-gray-600">Perdana Menteri Ke-3</p>
                         <p class="text-sm text-gray-500 mt-1">Masa Jabatan: 05 Mar 2025 - 07 Mar 2025</p>
@@ -554,7 +554,7 @@
                     </div>
                     <!-- Mantan PM 4: Ajax, 11th Fatui Harbingers -->
                     <div class="card p-6 text-center">
-                        <img src="4th Prime Minister (Ajax, 11th Fatui Harbingers).jpg" alt="Mantan Perdana Menteri Ajax, 11th Fatui Harbingers" class="former-pm-img" onerror="this.onerror=null; this.src='https://placehold.co/140x140/D1A980/333333?text=PM+4';">
+                        <img src="4th Prime Minister (Ajax, 11th Fatui Harbingers).jpg" alt="Mantan Perdana Menteri Ajax, 11th Fatui Harbingers" class="former-pm-img" onerror="this.onerror=null; this.src='https://placehold.co/140x140/FFC7C7/333333?text=PM+4';">
                         <h4 class="text-xl font-semibold text-gray-900">Ajax, 11th Fatui Harbingers</h4>
                         <p class="text-gray-600">Perdana Menteri Ke-4</p>
                         <p class="text-sm text-gray-500 mt-1">Masa Jabatan: 07 Mar 2024 - 09 Mar 2025</p>
@@ -562,7 +562,7 @@
                     </div>
                      <!-- Mantan PM 5: Viktor Ong -->
                     <div class="card p-6 text-center">
-                        <img src="5th Prime Minister (Viktor Ong).jpg" alt="Mantan Perdana Menteri Viktor Ong" class="former-pm-img" onerror="this.onerror=null; this.src='https://placehold.co/140x140/D1A980/333333?text=PM+5';">
+                        <img src="5th Prime Minister (Viktor Ong).jpg" alt="Mantan Perdana Menteri Viktor Ong" class="former-pm-img" onerror="this.onerror=null; this.src='https://placehold.co/140x140/FFC7C7/333333?text=PM+5';">
                         <h4 class="text-xl font-semibold text-gray-900">Viktor Ong</h4>
                         <p class="text-gray-600">Perdana Menteri Ke-5</p>
                         <p class="text-sm text-gray-500 mt-1">Masa Jabatan: 09 Mar 2025 - 12 Mar 2025</p>
@@ -570,7 +570,7 @@
                     </div>
                     <!-- Mantan PM 6: Rika Honjouji -->
                     <div class="card p-6 text-center">
-                        <img src="6th Prime Minister (Rika Honjouji).jpg" alt="Mantan Perdana Menteri Rika Honjouji" class="former-pm-img" onerror="this.onerror=null; this.src='https://placehold.co/140x140/D1A980/333333?text=PM+6';">
+                        <img src="6th Prime Minister (Rika Honjouji).jpg" alt="Mantan Perdana Menteri Rika Honjouji" class="former-pm-img" onerror="this.onerror=null; this.src='https://placehold.co/140x140/FFC7C7/333333?text=PM+6';">
                         <h4 class="text-xl font-semibold text-gray-900">Rika Honjouji</h4>
                         <p class="text-gray-600">Perdana Menteri Ke-6</p>
                         <p class="text-sm text-gray-500 mt-1">Masa Jabatan: 12 Mar 2025 - 26 Mar 2025</p>
@@ -578,7 +578,7 @@
                     </div>
                     <!-- Mantan PM 7: Ix Uxul Tz'ib Bolon Ch'ule-L (Ixlel) -->
                     <div class="card p-6 text-center">
-                        <img src="7th Prime Minister (Ixlel).jpg" alt="Mantan Perdana Menteri Ixlel" class="former-pm-img" onerror="this.onerror=null; this.src='https://placehold.co/140x140/D1A980/333333?text=PM+7';">
+                        <img src="7th Prime Minister (Ixlel).jpg" alt="Mantan Perdana Menteri Ixlel" class="former-pm-img" onerror="this.onerror=null; this.src='https://placehold.co/140x140/FFC7C7/333333?text=PM+7';">
                         <h4 class="text-xl font-semibold text-gray-900">Ix Uxul Tz'ib Bolon Ch'ule-L</h4>
                         <p class="text-gray-600">Perdana Menteri Ke-7</p>
                         <p class="text-sm text-gray-500 mt-1">Masa Jabatan: 26 Mar 2025 - 27 Mar 2025</p>
@@ -586,7 +586,7 @@
                     </div>
                     <!-- Mantan PM 8 & 10: Ajax Kazutora -->
                     <div class="card p-6 text-center">
-                        <img src="8th & 10th Prime Minister (Ajax Kazutora).jpg" alt="Mantan Perdana Menteri Ajax Kazutora" class="former-pm-img" onerror="this.onerror=null; this.src='https://placehold.co/140x140/D1A980/333333?text=PM+8+&amp;+10';">
+                        <img src="8th & 10th Prime Minister (Ajax Kazutora).jpg" alt="Mantan Perdana Menteri Ajax Kazutora" class="former-pm-img" onerror="this.onerror=null; this.src='https://placehold.co/140x140/FFC7C7/333333?text=PM+8+&amp;+10';">
                         <h4 class="text-xl font-semibold text-gray-900">Ajax Kazutora</h4>
                         <p class="text-gray-600">Perdana Menteri Ke-8 & 10</p>
                         <p class="text-sm text-gray-500 mt-1">Masa Jabatan: 28 Mar 2025 - 03 Apr 2025,</p>
@@ -595,7 +595,7 @@
                     </div>
                     <!-- Mantan PM 9: K'uhul Ajaw -->
                     <div class="card p-6 text-center">
-                        <img src="9th Prime Minister (K'uhul Ajaw).jpg" alt="Mantan Perdana Menteri K'uhul Ajaw" class="former-pm-img" onerror="this.onerror=null; this.src='https://placehold.co/140x140/D1A980/333333?text=PM+9';">
+                        <img src="9th Prime Minister (K'uhul Ajaw).jpg" alt="Mantan Perdana Menteri K'uhul Ajaw" class="former-pm-img" onerror="this.onerror=null; this.src='https://placehold.co/140x140/FFC7C7/333333?text=PM+9';">
                         <h4 class="text-xl font-semibold text-gray-900">K'uhul Ajaw</h4>
                         <p class="text-gray-600">Perdana Menteri Ke-9</p>
                         <p class="text-sm text-gray-500 mt-1">Masa Jabatan: 03 Apr 2025 - 12 Apr 2025</p>
@@ -603,7 +603,7 @@
                     </div>
                     <!-- Mantan PM 11 & 13: Ajax Riftblade -->
                     <div class="card p-6 text-center">
-                        <img src="11th & 13th Prime Minister (Ajax Riftblade).jpg" alt="Mantan Perdana Menteri Ajax Riftblade" class="former-pm-img" onerror="this.onerror=null; this.src='https://placehold.co/140x140/D1A980/333333?text=PM+11+&amp;+13';">
+                        <img src="11th & 13th Prime Minister (Ajax Riftblade).jpg" alt="Mantan Perdana Menteri Ajax Riftblade" class="former-pm-img" onerror="this.onerror=null; this.src='https://placehold.co/140x140/FFC7C7/333333?text=PM+11+&amp;+13';">
                         <h4 class="text-xl font-semibold text-gray-900">Ajax Riftblade</h4>
                         <p class="text-gray-600">Perdana Menteri Ke-11 & 13</p>
                         <p class="text-sm text-gray-500 mt-1">Masa Jabatan: 16 Mei 2025 - 26 Mei 2025,</p>
@@ -612,7 +612,7 @@
                     </div>
                     <!-- Mantan PM 12: Dainsleif -->
                     <div class="card p-6 text-center">
-                        <img src="12th Prime Minister (Dainsleif).jpg" alt="Mantan Perdana Menteri Dainsleif" class="former-pm-img" onerror="this.onerror=null; this.src='https://placehold.co/140x140/D1A980/333333?text=PM+12';">
+                        <img src="12th Prime Minister (Dainsleif).jpg" alt="Mantan Perdana Menteri Dainsleif" class="former-pm-img" onerror="this.onerror=null; this.src='https://placehold.co/140x140/FFC7C7/333333?text=PM+12';">
                         <h4 class="text-xl font-semibold text-gray-900">Dainsleif</h4>
                         <p class="text-gray-600">Perdana Menteri Ke-12</p>
                         <p class="text-sm text-gray-500 mt-1">Masa Jabatan: 26 Mei 2025 - 30 Mei 2025</p>
@@ -620,7 +620,7 @@
                     </div>
                      <!-- Mantan PM 14: Ajax Err -->
                     <div class="card p-6 text-center">
-                        <img src="14th Prime Minister (Ajax Err).jpg" alt="Mantan Perdana Menteri Ajax Err" class="former-pm-img" onerror="this.onerror=null; this.src='https://placehold.co/140x140/D1A980/333333?text=PM+14';">
+                        <img src="14th Prime Minister (Ajax Err).jpg" alt="Mantan Perdana Menteri Ajax Err" class="former-pm-img" onerror="this.onerror=null; this.src='https://placehold.co/140x140/FFC7C7/333333?text=PM+14';">
                         <h4 class="text-xl font-semibold text-gray-900">Ajax Err</h4>
                         <p class="text-gray-600">Perdana Menteri Ke-14</p>
                         <p class="text-sm text-gray-500 mt-1">Masa Jabatan: 10 Jun 2025 - 19 Jun 2025</p>
@@ -628,7 +628,7 @@
                     </div>
                     <!-- Mantan PM 15: Ajax Lockhart -->
                     <div class="card p-6 text-center">
-                        <img src="15th Prime Minister (Ajax Lockhart).jpg" alt="Mantan Perdana Menteri Ajax Lockhart" class="former-pm-img" onerror="this.onerror=null; this.src='https://placehold.co/140x140/D1A980/333333?text=PM+15';">
+                        <img src="15th Prime Minister (Ajax Lockhart).jpg" alt="Mantan Perdana Menteri Ajax Lockhart" class="former-pm-img" onerror="this.onerror=null; this.src='https://placehold.co/140x140/FFC7C7/333333?text=PM+15';">
                         <h4 class="text-xl font-semibold text-gray-900">Ajax Lockhart</h4>
                         <p class="text-gray-600">Perdana Menteri Ke-15</p>
                         <p class="text-sm text-gray-500 mt-1">Masa Jabatan: 19 Jun 2025 - 30 Jun 2025</p>
@@ -697,7 +697,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
              <!-- News 1: Contoh Berita Baru -->
                 <div class="card p-6">
-                    <img src="pmonline_github.jpg" alt="Github Hosting" class="news-card-img" onerror="this.onerror=null; this.src='https://placehold.co/600x400/E5E0D8/333333?text=Github+Hosting';">
+                    <img src="pmonline_github.jpg" alt="Github Hosting" class="news-card-img" onerror="this.onerror=null; this.src='https://placehold.co/600x400/FFE2E2/333333?text=Github+Hosting';">
                     <p class="news-card-date"> 1 Juli 2025</p>
                     <h3 class="news-card-title">Laman HTML Kantor Perdana Menteri kini dapat diakses di internet</h3>
                     <p class="text-gray-700 leading-relaxed mb-4">Kabar menggembirakan, bahwa mulai tanggal 1 Juli 2025, Laman HTML Kantor Perdana Menteri dapat diakses secara online melalui internet. Karena telah dihosting melalui GitHub. </p>
@@ -707,7 +707,7 @@
                 </div>
                 <!-- News 1: Contoh Berita Baru -->
                 <div class="card p-6">
-                    <img src="perdana_baru.jpg" alt="Perdana Menteri Baru" class="news-card-img" onerror="this.onerror=null; this.src='https://placehold.co/600x400/E5E0D8/333333?text=Perdana+Menteri+Baru';">
+                    <img src="perdana_baru.jpg" alt="Perdana Menteri Baru" class="news-card-img" onerror="this.onerror=null; this.src='https://placehold.co/600x400/FFE2E2/333333?text=Perdana+Menteri+Baru';">
                     <p class="news-card-date"> 30 Juni 2025</p>
                     <h3 class="news-card-title">Ajax Lockhart resign mengisi posisi Akun Microsoft, akhirnya Ouka Shiunji menjadi Perdana Menteri Ke-16</h3>
                     <p class="text-gray-700 leading-relaxed mb-4">Ajax Lockhart resmi resign dari jabatan Perdana Menteri, pada penutup bulan juni ini, Ouka Shiunji kemudian mengambil alih posisi tersebut untuk menggantikan Lockhart. </p>
@@ -717,7 +717,7 @@
                 </div>
                 <!-- News 2 -->
                 <div class="card p-6">
-                    <img src="news_website_launch.jpg" alt="Peluncuran Website Kantor Perdana Menteri" class="news-card-img" onerror="this.onerror=null; this.src='https://placehold.co/600x400/D1A980/333333?text=Peluncuran+Website';">
+                    <img src="news_website_launch.jpg" alt="Peluncuran Website Kantor Perdana Menteri" class="news-card-img" onerror="this.onerror=null; this.src='https://placehold.co/600x400/FFC7C7/333333?text=Peluncuran+Website';">
                     <p class="news-card-date">25 Juni 2025</p>
                     <h3 class="news-card-title">Laman HTML Kantor Perdana Menteri Diluncurkan</h3>
                     <p class="news-card-excerpt">Laman HTML kini dapat diakses melalui direktori publik Kantor Perdana Menteri, yang dikembangkan bekerja sama dengan Gemini AI.</p>
@@ -727,7 +727,7 @@
                 </div>  
                 <!-- News 3 -->
                 <div class="card p-6">
-                    <img src="news_new_pm_appointed.jpg" alt="Pelantikan Perdana Menteri Baru" class="news-card-img" onerror="this.onerror=null; this.src='https://placehold.co/600x400/748873/FFFFFF?text=PM+Baru+Dilantik';">
+                    <img src="news_new_pm_appointed.jpg" alt="Pelantikan Perdana Menteri Baru" class="news-card-img" onerror="this.onerror=null; this.src='https://placehold.co/600x400/8785A2/FFFFFF?text=PM+Baru+Dilantik';">
                     <p class="news-card-date">19 Juni 2025</p>
                     <h3 class="news-card-title">Ajax Lockhart Menjadi Perdana Menteri Ke-15</h3>
                     <p class="text-gray-700 leading-relaxed mb-4">Bulan ini kita memiliki Perdana Menteri ke-15 yang baru, Ajax Lockhart, yang mulai menjabat menggantikan Ajax Err, Perdana Menteri sebelumnya. Lockhart berharap dapat membuat perubahan besar pada sistem kabinet.</p>
@@ -806,7 +806,7 @@
                 <div class="text-center md:text-left">
                     <h3 class="text-3xl font-bold mb-4 flex items-center justify-center md:justify-start">
                         <!-- Ikon PNG di footer -->
-                        <img src="Logo KPM.png" alt="Logo Kantor PM" class="h-10 mr-3" onerror="this.onerror=null; this.src='https://placehold.co/40x40/748873/FFFFFF?text=PM';" />
+                        <img src="Logo KPM.png" alt="Logo Kantor PM" class="h-10 mr-3" onerror="this.onerror=null; this.src='https://placehold.co/40x40/8785A2/FFFFFF?text=PM';" />
                         KPM
                     </h3>
                     <p class="text-white leading-relaxed max-w-xs mx-auto md:mx-0"> <!-- Mengubah teks menjadi putih -->
@@ -819,20 +819,20 @@
                     <h4 class="text-2xl font-semibold mb-6 text-accent-light">Tautan Cepat</h4>
                     <ul class="space-y-3">
                         <li><a href="#home" onclick="showSection('home'); return false;" class="footer-link flex items-center justify-center md:justify-start">
-                            <i class="fas fa-home text-primary-medium text-sm mr-3"></i> Beranda <!-- Mengubah ikon menjadi cokelat -->
+                            <i class="fas fa-home text-primary-medium text-sm mr-3"></i> Beranda <!-- Mengubah ikon menjadi merah muda -->
                         </a></li>
                         <li><a href="#executive-track-record" onclick="showSection('executive-track-record'); return false;" class="footer-link flex items-center justify-center md:justify-start">
-                            <i class="fas fa-chart-line text-primary-medium text-sm mr-3"></i> Rekam Jejak <!-- Mengubah ikon menjadi cokelat -->
+                            <i class="fas fa-chart-line text-primary-medium text-sm mr-3"></i> Rekam Jejak <!-- Mengubah ikon menjadi merah muda -->
                         </a></li>
                         <!-- Tambahkan link "Kabinet" di footer juga -->
                         <li><a href="#cabinet" onclick="showSection('cabinet'); return false;" class="footer-link flex items-center justify-center md:justify-start">
-                            <i class="fas fa-users text-primary-medium text-sm mr-3"></i> Kabinet <!-- Mengubah ikon menjadi cokelat -->
+                            <i class="fas fa-users text-primary-medium text-sm mr-3"></i> Kabinet <!-- Mengubah ikon menjadi merah muda -->
                         </a></li>
                         <li><a href="#news-announcements" onclick="showSection('news-announcements'); return false;" class="footer-link flex items-center justify-center md:justify-start">
-                            <i class="fas fa-newspaper text-primary-medium text-sm mr-3"></i> Berita & Info <!-- Mengubah ikon menjadi cokelat -->
+                            <i class="fas fa-newspaper text-primary-medium text-sm mr-3"></i> Berita & Info <!-- Mengubah ikon menjadi merah muda -->
                         </a></li>
                         <li><a href="#contact" onclick="showSection('contact'); return false;" class="footer-link flex items-center justify-center md:justify-start">
-                            <i class="fas fa-envelope text-primary-medium text-sm mr-3"></i> Kontak <!-- Mengubah ikon menjadi cokelat -->
+                            <i class="fas fa-envelope text-primary-medium text-sm mr-3"></i> Kontak <!-- Mengubah ikon menjadi merah muda -->
                         </a></li>
                     </ul>
                 </div>
@@ -841,13 +841,13 @@
                 <div class="text-center md:text-left">
                     <h4 class="text-2xl font-semibold mb-6 text-accent-light">Hubungi Kami</h4>
                     <p class="text-white mb-3 flex items-center justify-center md:justify-start"> <!-- Mengubah teks menjadi putih -->
-                        <i class="fas fa-map-marker-alt mr-3 text-primary-medium"></i> Kantor Perdana Menteri <!-- Mengubah ikon menjadi cokelat -->
+                        <i class="fas fa-map-marker-alt mr-3 text-primary-medium"></i> Kantor Perdana Menteri <!-- Mengubah ikon menjadi merah muda -->
                     </p>
                     <p class="text-white mb-3 flex items-center justify-center md:justify-start"> <!-- Mengubah teks menjadi putih -->
-                        <i class="fas fa-phone-alt mr-3 text-primary-medium"></i> - <!-- Mengubah ikon menjadi cokelat -->
+                        <i class="fas fa-phone-alt mr-3 text-primary-medium"></i> - <!-- Mengubah ikon menjadi merah muda -->
                     </p>
                     <p class="text-white mb-6 flex items-center justify-center md:justify-start"> <!-- Mengubah teks menjadi putih -->
-                        <i class="fas fa-envelope mr-3 text-primary-medium"></i> - <!-- Mengubah ikon menjadi cokelat -->
+                        <i class="fas fa-envelope mr-3 text-primary-medium"></i> - <!-- Mengubah ikon menjadi merah muda -->
                     </p>
                 </div>
             </div>
